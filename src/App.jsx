@@ -8,6 +8,8 @@ import TodoItems from "./components/TodoItems";
 import AppFooter from "./components/AppFooter";
 import SelectFilterTodoItems from "./components/SelectFilterTodoItems";
 function App() {
+  const [inputTodo, setInputTodo] = useState("");
+
   return (
     <TodoProvider>
       <AppContainers>
