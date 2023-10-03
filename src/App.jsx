@@ -1,30 +1,52 @@
-import darkModeIcon from "./assets/dark_mode_icon.svg";
+import { useState } from "react";
 import "./App.css";
+import AppContainers from "./components/AppContainers";
+import AppHeader from "./components/AppHeader";
 function App() {
+  const [inputTodo, setInputTodo] = useState("");
+
   return (
-    <div className="bg-[#171823]  w-screen h-screen flex flex-col justify-start items-center">
-      <div className="w-[327px] mt-[70px]">
-        <div className=" flex flex-row justify-between items-center">
-          <p className="text-white text-[20px] font-normal tracking-[15px]">
-            TODO
-          </p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M11.8244 0.166024C8.14853 0.922784 5.38462 4.17708 5.38462 8.07692C5.38462 12.5377 9.00078 16.1538 13.4615 16.1538C15.766 16.1538 17.8451 15.1887 19.3166 13.6406C17.8608 17.3633 14.2383 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C10.6231 0 11.2328 0.0569837 11.8244 0.166024Z"
-              fill="white"
-            />
-          </svg>
-        </div>
+    <AppContainers>
+      <AppHeader />
+      <div className="w-full h-12 bg-white rounded-[5px] pl-5 py-[14px] flex space-x-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <circle cx="10" cy="10" r="9.5" fill="white" stroke="#E3E4F1" />
+          <circle
+            opacity="0.01"
+            cx="10"
+            cy="10"
+            r="10"
+            fill="url(#paint0_linear_0_343)"
+          />
+          <path
+            opacity="0.01"
+            d="M6.66675 10.2534L8.91333 12.5L13.9133 7.5"
+            stroke="white"
+            stroke-width="2"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_0_343"
+              x1="-10"
+              y1="10"
+              x2="10"
+              y2="30"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#55DDFF" />
+              <stop offset="1" stop-color="#C058F3" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <input type="text" placeholder="Create a new todo" className="mt-1" />
       </div>
-    </div>
+    </AppContainers>
   );
 }
 
