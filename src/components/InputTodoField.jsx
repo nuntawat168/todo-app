@@ -68,10 +68,10 @@ const InputTodoField = () => {
         value={inputTodo}
         aria-label="inputTodo"
         type="text"
-        placeholder="Create a new todo"
+        placeholder="Create a new todo..."
         onChange={handleOnChangeInputTodo}
         onKeyDown={handleOnKeyDownInputTodo}
-        className="w-full h-full grow mt-1 focus:outline-none text-[#393A4B] placeholder:text-[#9495A5] "
+        className="w-full h-full grow text-xs font-normal focus:outline-none text-[#393A4B] placeholder:text-[#9495A5] "
       />
     </div>
   );
