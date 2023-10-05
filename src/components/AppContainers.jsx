@@ -2,7 +2,7 @@ import React from "react";
 
 const AppContainers = (props) => {
   return (
-    <div className="bg-[#FAFAFA]  w-screen h-screen flex flex-col justify-start items-center relative ">
+    <div className="bg-[#FAFAFA] w-screen min-h-screen flex flex-col justify-start items-center relative ">
       <div
         className={`w-full h-[200px] bg-cover bg-center bg-img absolute`}
       ></div>
