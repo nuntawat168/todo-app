@@ -9,6 +9,7 @@ function TodoProvider(props) {
   const [inputTodo, setInputTodo] = useState("");
   const [todoItems, setTodoItems] = useState([]);
   const [lastTodoItemId, setLastTodoItemId] = useState(0);
+  const [selectFilter, setSelectFilter] = useState("all");
   const isMobileScreen = width < 640 ? true : false;
   function initTodoItems() {
     setTodoItems(mockTodoitems);
@@ -20,9 +21,22 @@ function TodoProvider(props) {
   }, []);
 
   useEffect(() => {
-    console.log("todoItems:", todoItems);
+    // console.log("todoItems:", todoItems);
     // console.log("isMobileScreen->", isMobileScreen);
   }, [todoItems]);
+
+  function filterTodoItems(todoItemStatus) {
+    if (selectFilter === "all") {
+      return true;
+    } else if (selectFilter === "active" && todoItemStatus === "active") {
+      return true;
+    } else if (selectFilter === "completed" && todoItemStatus === "completed") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <TodoContext.Provider
       value={{
@@ -33,6 +47,9 @@ function TodoProvider(props) {
         lastTodoItemId,
         setLastTodoItemId,
         isMobileScreen,
+        filterTodoItems,
+        selectFilter,
+        setSelectFilter,
       }}
     >
       {props.children}

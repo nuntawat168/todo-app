@@ -2,7 +2,13 @@ import React from "react";
 import { useTodo } from "../contexts/todoContext";
 
 const TodoItems = () => {
-  const { todoItems, setTodoItems, isMobileScreen } = useTodo();
+  const {
+    todoItems,
+    setTodoItems,
+    isMobileScreen,
+    filterTodoItems,
+    selectFilter,
+  } = useTodo();
   function handleOnChangeChecked(index) {
     const tmpTodoItems = [...todoItems];
     tmpTodoItems[index] =
@@ -23,45 +29,54 @@ const TodoItems = () => {
   }
   return (
     <div className="mt-4 shadow-todoLists">
-      {todoItems.map((todoItem, index) => {
-        return (
-          <div
-            key={index}
-            className={`${index === 0 ? "rounded-t-[5px]" : ""} 
-                flex justify-start items-center w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal text-[#494C6B]
+      {todoItems
+        .filter((todoItem) => {
+          return filterTodoItems(todoItem.status);
+        })
+        .map((todoItem, index) => {
+          return (
+            <div
+              key={index}
+              className={`${index === 0 ? "rounded-t-[5px]" : ""} 
+                ${
+                  todoItem.status === "completed"
+                    ? "line-through text-[#D1D2DA]"
+                    : "text-[#494C6B]"
+                }
+                flex justify-start items-center w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal 
                 space-x-3 relative
               `}
-          >
-            <input
-              className="w-5 h-5 mr-3"
-              type="checkbox"
-              id={`todo-item-${todoItem.id}`}
-              checked={todoItem.status === "completed" ? true : false}
-              onChange={() => handleOnChangeChecked(index)}
-            />
-            {todoItem.todo}
-            <button
-              className="absolute right-6"
-              onClick={() => handleOnDeleteTodoItem(index)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
+              <input
+                className="w-5 h-5 mr-3"
+                type="checkbox"
+                id={`todo-item-${todoItem.id}`}
+                checked={todoItem.status === "completed" ? true : false}
+                onChange={() => handleOnChangeChecked(index)}
+              />
+              {todoItem.todo}
+              <button
+                className="absolute right-6"
+                onClick={() => handleOnDeleteTodoItem(index)}
               >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
-                  fill="#494C6B"
-                />
-              </svg>
-            </button>
-          </div>
-        );
-      })}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
+                    fill="#494C6B"
+                  />
+                </svg>
+              </button>
+            </div>
+          );
+        })}
       {todoItems.length === 0 && (
         <div
           className={`rounded-t-[5px]
