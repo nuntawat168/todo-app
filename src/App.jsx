@@ -1,12 +1,23 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-
+import AppContainers from "./components/AppContainers";
+import AppHeader from "./components/AppHeader";
+import InputTodoField from "./components/InputTodoField";
+import { TodoProvider } from "./contexts/todoContext";
+import TodoItems from "./components/TodoItems";
+import AppFooter from "./components/AppFooter";
+import SelectFilterTodoItems from "./components/SelectFilterTodoItems";
 function App() {
   return (
-    <div className="bg-[#171823]  w-screen h-screen flex flex-col justify-start items-center">
-      <div className="mt-[70px]"></div>
-      <p className="text-white text-[40px] font-normal tracking-[15px]">TODO</p>
-    </div>
+    <TodoProvider>
+      <AppContainers>
+        <AppHeader />
+        <InputTodoField />
+        <TodoItems />
+        <SelectFilterTodoItems />
+        <AppFooter />
+      </AppContainers>
+    </TodoProvider>
   );
 }
 
