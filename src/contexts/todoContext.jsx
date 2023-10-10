@@ -1,29 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { mockTodoitems } from "../utils/mockTodoItems";
 import useWindowDimensions from "../hooks/usewindowDimensions";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const TodoContext = React.createContext();
 
 function TodoProvider(props) {
   const { height, width } = useWindowDimensions();
   const [inputTodo, setInputTodo] = useState("");
-  const [todoItems, setTodoItems] = useState([]);
+  const [todoItems, setTodoItems] = useLocalStorage("todo-items", []);
   const [lastTodoItemId, setLastTodoItemId] = useState(0);
   const [selectFilter, setSelectFilter] = useState("all");
   const isMobileScreen = width < 640 ? true : false;
-  function initTodoItems() {
-    setTodoItems(mockTodoitems);
-    setLastTodoItemId(mockTodoitems.length);
-  }
-
-  useEffect(() => {
-    initTodoItems();
-  }, []);
-
-  useEffect(() => {
-    // console.log("todoItems:", todoItems);
-    // console.log("isMobileScreen->", isMobileScreen);
-  }, [todoItems]);
 
   function filterTodoItems(todoItemStatus) {
     if (selectFilter === "all") {
