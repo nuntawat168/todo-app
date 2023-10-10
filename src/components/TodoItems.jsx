@@ -60,14 +60,18 @@ const TodoItems = () => {
         style={style}
         {...attributes}
         {...listeners}
-        className={`${index === 0 ? "rounded-t-[5px]" : ""} 
+        className={`${
+          index === 0
+            ? "rounded-t-[5px]"
+            : "border-t-[1px] border-[#E3E4F1] dark:border-[#393A4B]"
+        } 
                 ${
                   todoItem.status === "completed"
-                    ? "line-through text-[#D1D2DA]"
-                    : "text-[#494C6B]"
+                    ? "line-through text-[#D1D2DA] dark:text-[#4D5067]"
+                    : "text-[#494C6B] dark:text-[#C8CBE7]"
                 }
                 ${isDragging && `z-50`}
-                flex justify-start items-center w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal 
+                flex justify-start items-center w-full min-h-[53px] bg-white dark:bg-[#25273D] px-5 py-4  text-xs font-normal 
                 space-x-3 relative
                 group xl:min-h-[64px] xl:text-lg
               `}
@@ -128,7 +132,7 @@ const TodoItems = () => {
   });
 
   return (
-    <div className="mt-4 shadow-todoLists">
+    <div className="mt-4 shadow-light dark:shadow-dark">
       <DndContext
         collisionDetection={closestCenter}
         onDragEnd={onDragEnd}
@@ -163,7 +167,7 @@ const TodoItems = () => {
           You have nothing to do
         </div>
       )}
-      <div className="flex items-center justify-between w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal text-[#9495A5] rounded-b-[5px] xl:text-sm xl:min-h-[64px]">
+      <div className="flex items-center justify-between w-full min-h-[53px] bg-white dark:bg-[#25273D] px-5 py-4 border-t-[1px] border-[#E3E4F1] dark:border-[#393A4B] text-xs font-normal text-[#9495A5] dark:text-[#5B5E7E] rounded-b-[5px] xl:text-sm xl:min-h-[64px]">
         <div>
           {todoItems.filter(({ status }) => status === "active").length} items
           left
@@ -176,7 +180,7 @@ const TodoItems = () => {
             className={`${
               selectFilter === "all"
                 ? "text-[#3A7CFD]"
-                : "text-[#9495A5] hover:text-[#494C6B]"
+                : "text-[#9495A5] dark:text-[#5B5E7E] hover:text-[#494C6B] dark:hover:text-[#E3E4F1]"
             } `}
           >
             All
@@ -186,7 +190,7 @@ const TodoItems = () => {
             className={`${
               selectFilter === "active"
                 ? "text-[#3A7CFD]"
-                : "text-[#9495A5] hover:text-[#494C6B]"
+                : "text-[#9495A5] dark:text-[#5B5E7E] hover:text-[#494C6B] dark:hover:text-[#E3E4F1]"
             } `}
           >
             Active
@@ -196,7 +200,7 @@ const TodoItems = () => {
             className={`${
               selectFilter === "completed"
                 ? "text-[#3A7CFD]"
-                : "text-[#9495A5] hover:text-[#494C6B]"
+                : "text-[#9495A5] dark:text-[#5B5E7E] hover:text-[#494C6B] dark:hover:text-[#E3E4F1]"
             } `}
           >
             Completed
@@ -204,7 +208,7 @@ const TodoItems = () => {
         </div>
         <button
           onClick={handleOnClearCompleted}
-          className="hover:text-[#494C6B]"
+          className="hover:text-[#494C6B] dark:hover:text-[#E3E4F1]"
         >
           Clear Completed
         </button>
