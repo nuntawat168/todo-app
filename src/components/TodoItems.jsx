@@ -160,8 +160,8 @@ const TodoItems = () => {
       {todoItems.length === 0 && (
         <div
           className={`rounded-t-[5px]
-                flex justify-ce items-center w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal text-[#9495A5]
-                space-x-3 relative
+                flex justify-ce items-center w-full min-h-[53px] bg-white dark:bg-[#25273D] px-5 py-4 border-t-[1px] border-[#E3E4F1] dark:border-[#393A4B] text-xs font-normal text-[#9495A5]
+                space-x-3 relative xl:min-h-[64px] xl:text-lg
               `}
         >
           You have nothing to do
