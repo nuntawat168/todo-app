@@ -168,7 +168,12 @@ const TodoItems = () => {
           {todoItems.filter(({ status }) => status === "active").length} items
           left
         </div>
-        <button onClick={handleOnClearCompleted}>Clear Completed</button>
+        <button
+          onClick={handleOnClearCompleted}
+          className="hover:text-[#494C6B]"
+        >
+          Clear Completed
+        </button>
       </div>
     </div>
   );

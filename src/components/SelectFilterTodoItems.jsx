@@ -8,7 +8,9 @@ const SelectFilterTodoItems = () => {
       <button
         onClick={() => setSelectFilter("all")}
         className={`${
-          selectFilter === "all" ? "text-[#3A7CFD]" : "text-[#9495A5]"
+          selectFilter === "all"
+            ? "text-[#3A7CFD]"
+            : "text-[#9495A5] hover:text-[#494C6B]"
         } `}
       >
         All
@@ -16,7 +18,9 @@ const SelectFilterTodoItems = () => {
       <button
         onClick={() => setSelectFilter("active")}
         className={`${
-          selectFilter === "active" ? "text-[#3A7CFD]" : "text-[#9495A5]"
+          selectFilter === "active"
+            ? "text-[#3A7CFD]"
+            : "text-[#9495A5] hover:text-[#494C6B]"
         } `}
       >
         Active
@@ -24,7 +28,9 @@ const SelectFilterTodoItems = () => {
       <button
         onClick={() => setSelectFilter("completed")}
         className={`${
-          selectFilter === "completed" ? "text-[#3A7CFD]" : "text-[#9495A5]"
+          selectFilter === "completed"
+            ? "text-[#3A7CFD]"
+            : "text-[#9495A5] hover:text-[#494C6B]"
         } `}
       >
         Completed
