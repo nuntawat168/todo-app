@@ -8,10 +8,20 @@ const TodoContext = React.createContext();
 function TodoProvider(props) {
   const { height, width } = useWindowDimensions();
   const [inputTodo, setInputTodo] = useState("");
-  const [todoItems, setTodoItems] = useLocalStorage("todo-items", []);
+  const [todoItems, setTodoItems] = useLocalStorage(
+    "todo-items",
+    mockTodoitems
+  );
   const [lastTodoItemId, setLastTodoItemId] = useState(0);
   const [selectFilter, setSelectFilter] = useState("all");
   const isMobileScreen = width < 640 ? true : false;
+
+  useEffect(() => {
+    const lastTodoItem = todoItems.reduce((acc, cur) =>
+      acc.id > cur.id ? acc : cur
+    );
+    setLastTodoItemId(lastTodoItem.id);
+  }, []);
 
   function filterTodoItems(todoItemStatus) {
     if (selectFilter === "all") {
