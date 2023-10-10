@@ -17,6 +17,7 @@ const TodoItems = () => {
     isMobileScreen,
     filterTodoItems,
     selectFilter,
+    setSelectFilter,
   } = useTodo();
 
   function handleOnChangeChecked(index) {
@@ -68,10 +69,11 @@ const TodoItems = () => {
                 ${isDragging && `z-50`}
                 flex justify-start items-center w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal 
                 space-x-3 relative
+                group xl:min-h-[64px] xl:text-lg
               `}
       >
         <input
-          className="w-5 h-5 mr-3"
+          className="w-5 h-5 mr-3 xl:w-6 xl:h-6 xl:mr-6"
           type="checkbox"
           id={`todo-item-${todoItem.id}`}
           checked={todoItem.status === "completed" ? true : false}
@@ -81,7 +83,7 @@ const TodoItems = () => {
         />
         {todoItem.todo}
         <button
-          className="absolute right-6 w-3 h-3 z-20"
+          className="absolute right-6 w-3 h-3 z-20 xl:w-[18px] xl:h-[18px] xl:group-hover:flex xl:hidden"
           onClick={() => {
             handleOnDeleteTodoItem(index);
           }}
@@ -89,8 +91,6 @@ const TodoItems = () => {
           <svg
             className="z-10"
             xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="12"
             viewBox="0 0 12 12"
             fill="none"
           >
@@ -163,10 +163,44 @@ const TodoItems = () => {
           You have nothing to do
         </div>
       )}
-      <div className="flex items-center justify-between w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal text-[#9495A5] rounded-b-[5px]">
+      <div className="flex items-center justify-between w-full min-h-[53px] bg-white px-5 py-4 border-t-[1px] border-[#E3E4F1] text-xs font-normal text-[#9495A5] rounded-b-[5px] xl:text-sm xl:min-h-[64px]">
         <div>
           {todoItems.filter(({ status }) => status === "active").length} items
           left
+        </div>
+        <div
+          className={`xl:flex justify-center items-center font-bold space-x-[19px] hidden`}
+        >
+          <button
+            onClick={() => setSelectFilter("all")}
+            className={`${
+              selectFilter === "all"
+                ? "text-[#3A7CFD]"
+                : "text-[#9495A5] hover:text-[#494C6B]"
+            } `}
+          >
+            All
+          </button>
+          <button
+            onClick={() => setSelectFilter("active")}
+            className={`${
+              selectFilter === "active"
+                ? "text-[#3A7CFD]"
+                : "text-[#9495A5] hover:text-[#494C6B]"
+            } `}
+          >
+            Active
+          </button>
+          <button
+            onClick={() => setSelectFilter("completed")}
+            className={`${
+              selectFilter === "completed"
+                ? "text-[#3A7CFD]"
+                : "text-[#9495A5] hover:text-[#494C6B]"
+            } `}
+          >
+            Completed
+          </button>
         </div>
         <button
           onClick={handleOnClearCompleted}

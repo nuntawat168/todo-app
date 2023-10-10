@@ -3,14 +3,12 @@ import React from "react";
 const AppHeader = () => {
   return (
     <div className=" flex flex-row justify-between items-start mb-8">
-      <p className="text-white text-[25px] font-extrabold tracking-[10px]">
+      <p className="text-white text-[25px] font-extrabold tracking-[10px] xl:text-[40px] xl:font-bold xl:tracking-[15px]">
         TODO
       </p>
       <svg
-        className="mt-[6px]"
+        className="mt-[6px] w-5 h-5 xl:w-[26px] xl:h-[26px] xl:mt-[12px]"
         xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
         viewBox="0 0 20 20"
         fill="none"
       >

@@ -28,11 +28,10 @@ const InputTodoField = () => {
     setInputTodo("");
   }
   return (
-    <div className="w-full h-auto bg-white rounded-[5px] pl-5 py-[14px] flex flex-row justify-center items-center space-x-3">
+    <div className="w-full h-auto bg-white rounded-[5px] pl-5 py-[14px] flex flex-row justify-center items-center space-x-3 xl:py-[22px] xl:pl-6 xl:space-x-6">
       <svg
+        className="w-5 h-5 xl:w-6 xl:h-6"
         xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
         viewBox="0 0 20 20"
         fill="none"
       >
@@ -71,7 +70,7 @@ const InputTodoField = () => {
         placeholder="Create a new todo..."
         onChange={handleOnChangeInputTodo}
         onKeyDown={handleOnKeyDownInputTodo}
-        className="w-full h-full grow text-xs font-normal focus:outline-none text-[#393A4B] placeholder:text-[#9495A5] "
+        className="w-full h-full grow text-xs font-normal focus:outline-none text-[#393A4B] placeholder:text-[#9495A5] xl:text-lg"
       />
     </div>
   );
