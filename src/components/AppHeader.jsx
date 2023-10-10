@@ -10,7 +10,6 @@ const AppHeader = () => {
       </p>
       <button
         onClick={() => {
-          console.log("hhi");
           setColorMode(colorMode === "light" ? "dark" : "light");
         }}
       >
