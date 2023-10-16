@@ -2,8 +2,9 @@
 
 Welcome to our sleek and intuitive Todo App designed to elevate your task management experience. With a minimalist design and powerful functionalities, this app is crafted to boost your productivity effortlessly.
 
-![ToDo App Preview image](https://res.cloudinary.com/dexswyfdl/image/upload/v1697459532/Screenshot_2023-10-16_193152_nkkkqh.png)
-
+<p align="center">
+<img src="https://res.cloudinary.com/dexswyfdl/image/upload/v1697459532/Screenshot_2023-10-16_193152_nkkkqh.png" alt="ToDo App Preview image" width="400"/>
+</p>
 
 ## How to Access
 
