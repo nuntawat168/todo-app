@@ -2,6 +2,12 @@
 
 Welcome to our sleek and intuitive Todo App designed to elevate your task management experience. With a minimalist design and powerful functionalities, this app is crafted to boost your productivity effortlessly.
 
+## How to Access
+
+Visit our [Todo App](https://nuntawat168.github.io/todo-app/) and start managing your tasks efficiently. Whether you are a casual user or a productivity enthusiast, our app is designed to meet your needs with simplicity and elegance.
+
+Feel free to explore, organize, and conquer your tasks with our Todo App! If you have any questions or feedback, don't hesitate to reach out.
+
 ## Features
 
 1. **Add New Todos:** Easily add new tasks to your list with a simple click, keeping your to-dos organized.
@@ -24,11 +30,6 @@ Welcome to our sleek and intuitive Todo App designed to elevate your task manage
 
 10. **Automatic Local Storage:** Benefit from automatic local storage, ensuring that your to-do list persists even if you close the app. Your tasks are securely stored for future reference.
 
-## How to Access
-
-Visit our [Todo App](https://nuntawat168.github.io/todo-app/) and start managing your tasks efficiently. Whether you are a casual user or a productivity enthusiast, our app is designed to meet your needs with simplicity and elegance.
-
-Feel free to explore, organize, and conquer your tasks with our Todo App! If you have any questions or feedback, don't hesitate to reach out.
 
 ## Acknowledgment
 
